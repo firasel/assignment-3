@@ -8,6 +8,7 @@ function kilometerToMeter(kilometer) {
     }
 }
 
+
 // shopping budget calculator
 function budgetCalculator(watch, phone, laptop) {
     if (watch < 0 || phone < 0 || laptop < 0) {
@@ -16,48 +17,54 @@ function budgetCalculator(watch, phone, laptop) {
         var watchPrice = 50;
         var phonePrice = 100;
         var laptopPrice = 500;
-        var total = (watch * watchPrice) + (phone * phonePrice) + (laptop * laptopPrice);
-        return total;
+        var totalBudget = (watch * watchPrice) + (phone * phonePrice) + (laptop * laptopPrice);
+        return totalBudget;
     }
 }
+
 
 // total cost of staying at the hotel
-function hotelCost(day) {
-    if (day < 0) {
+function hotelCost(days) {
+    var firstTenDay
+    var secondTenDay
+    var thirdTenDay
+    var totalCost=0
+    if (days < 0) {
         return 'day cannot be negative,it is a positive number';
-    } else if (day <= 10) {
-        var totalCost = day * 100;
+    } else if (days <= 10) {
+        totalCost = days * 100;
         return totalCost;
-    } else if (day <= 20) {
-        var firstCost = 10 * 100;
-        var secondCost = (day - 10) * 80;
-        var totalCost = firstCost + secondCost;
+    } else if (days <= 20) {
+        firstTenDay = 10 * 100;
+        secondTenDay = (days - 10) * 80;
+        totalCost = firstTenDay + secondTenDay;
         return totalCost;
-    } else if (day > 20) {
-        var firstCost = 10 * 100;
-        var secondCost = 10 * 80;
-        var thirdCost = (day - 20) * 50;
-        var totalCost = firstCost + secondCost + thirdCost;
+    } else if (days > 20) {
+        firstTenDay = 10 * 100;
+        secondTenDay = 10 * 80;
+        thirdTenDay = (days - 20) * 50;
+        totalCost = firstTenDay + secondTenDay + thirdTenDay;
         return totalCost;
     }
 }
 
+
 // function to find the biggest name
-function megaFriend(arr) {
-    for(var i=0;i<arr.length;i++){
-        if(typeof arr[i]== 'number'){
-            return 'error'
+function megaFriend(names) {
+    for(var i=0;i<names.length;i++){
+        if(typeof names[i]== 'number'){
+            return 'please provide valid names'
         }
     }
-    if (arr.length == 0) {
-        return 'friends array not available value';
+    if (names.length == 0) {
+        return 'friends names not available value';
     } else {
-        var bigName = arr[0];
-        for (var i = 0; i < arr.length; i++) {
-            if (bigName.length < arr[i].length) {
-                bigName = arr[i];
+        var largestName = names[0];
+        for (var i = 0; i < names.length; i++) {
+            if (largestName.length < names[i].length) {
+                largestName = names[i];
             }
         }
-        return bigName;
+        return largestName;
     }
 }
